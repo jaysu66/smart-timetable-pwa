@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2d7a68">
+  <meta name="description" content="佛山大学智能课表，支持切换周次、离线查看与多层级全览。">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="智能课表">
+  <title>智能课表</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <style>
+    :root {
+      --bg: #f7f3e8;
+      --bg-deep: #e2efe7;
+      --paper: rgba(255, 252, 245, 0.92);
+      --ink: #13231e;
+      --subtle: #5f6f67;
+      --line: rgba(19, 35, 30, 0.1);
+      --jade: #2d7a68;
+      --moss: #8fb68b;
+      --sun: #f1c96b;
+      --coral: #ec7a5c;
+      --shadow: 0 24px 50px rgba(37, 62, 50, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background:
+        radial-gradient(circle at top left, rgba(236, 122, 92, 0.14), transparent 32%),
+        radial-gradient(circle at top right, rgba(45, 122, 104, 0.18), transparent 26%),
+        linear-gradient(180deg, #fffaf1 0%, var(--bg) 46%, #f1f8f4 100%);
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "HarmonyOS Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      border-radius: 999px;
+      filter: blur(10px);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    body::before {
+      top: -120px;
+      left: -80px;
+      width: 240px;
+      height: 240px;
+      background: rgba(241, 201, 107, 0.4);
+    }
+
+    body::after {
+      right: -70px;
+      bottom: 120px;
+      width: 220px;
+      height: 220px;
+      background: rgba(45, 122, 104, 0.2);
+    }
+
+    .shell {
+      width: min(100%, 460px);
+      margin: 0 auto;
+      padding: 22px 16px 44px;
+    }
+
+    .panel,
+    .day-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(45, 122, 104, 0.08);
+      color: var(--jade);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .badge.is-live {
+      background: rgba(241, 201, 107, 0.2);
+      color: #886100;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .panel {
+      padding: 16px;
+    }
+
+    .install-button {
+      appearance: none;
+      border: 0;
+      min-height: 48px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--jade), #3f9f87);
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 18px 30px rgba(45, 122, 104, 0.22);
+      cursor: pointer;
+    }
+
+    .install-button[disabled] {
+      cursor: default;
+      opacity: 0.55;
+      box-shadow: none;
+    }
+
+    .install-note {
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      background: rgba(45, 122, 104, 0.07);
+      border: 1px solid rgba(45, 122, 104, 0.14);
+      color: var(--subtle);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 10px;
+      z-index: 2;
+    }
+
+    .toolbar-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-button {
+      appearance: none;
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      color: var(--ink);
+      background: rgba(19, 35, 30, 0.06);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .week-focus {
+      min-width: 0;
+      text-align: center;
+    }
+
+    .week-focus strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .week-focus span {
+      display: block;
+      margin-top: 4px;
+      color: var(--subtle);
+      font-size: 13px;
+    }
+
+    .week-strip {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .week-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .week-chip {
+      appearance: none;
+      border: 1px solid transparent;
+      background: rgba(19, 35, 30, 0.05);
+      color: var(--ink);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .week-chip:hover {
+      transform: translateY(-1px);
+    }
+
+    .week-chip.is-active {
+      color: white;
+      background: linear-gradient(135deg, var(--jade), #3f9f87);
+      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 14px 24px rgba(45, 122, 104, 0.22);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .overview-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .spotlight-card {
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(45, 122, 104, 0.12), rgba(255, 255, 255, 0.92)),
+        white;
+      border: 1px solid rgba(45, 122, 104, 0.16);
+    }
+
+    .spotlight-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--jade);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .spotlight-card h3 {
+      margin: 12px 0 0;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .spotlight-card p {
+      margin: 8px 0 0;
+      color: var(--subtle);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .today-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .today-summary {
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      background: rgba(45, 122, 104, 0.1);
+      border: 1px solid rgba(45, 122, 104, 0.22);
+      color: #1f4f43;
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .adjust-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .adjust-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(19, 35, 30, 0.05);
+      color: var(--subtle);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field.is-full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 12px;
+      color: var(--subtle);
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid rgba(19, 35, 30, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--ink);
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: 2px solid rgba(45, 122, 104, 0.22);
+      border-color: rgba(45, 122, 104, 0.3);
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .button-row.is-three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .secondary-button {
+      appearance: none;
+      border: 1px solid rgba(19, 35, 30, 0.12);
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .class-card.is-custom {
+      border-color: color-mix(in srgb, var(--accent) 38%, white);
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 24%, white), rgba(255, 255, 255, 0.92)),
+        white;
+    }
+
+    .stat-card {
+      padding: 14px 12px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(245, 248, 242, 0.9));
+      border: 1px solid var(--line);
+    }
+
+    .stat-card span {
+      display: block;
+      color: var(--subtle);
+      font-size: 12px;
+    }
+
+    .stat-card strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .section-title span {
+      color: var(--subtle);
+      font-size: 12px;
+    }
+
+    .note-list,
+    .day-list,
+    .class-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .month-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .month-weekdays span {
+      text-align: center;
+      color: var(--subtle);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .month-cell {
+      min-height: 96px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(19, 35, 30, 0.1);
+      background: rgba(255, 255, 255, 0.85);
+      padding: 9px 8px;
+      display: grid;
+      align-content: start;
+      gap: 6px;
+    }
+
+    .month-cell.is-outside {
+      opacity: 0.42;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .month-cell.is-today {
+      border-color: rgba(236, 122, 92, 0.38);
+      box-shadow: 0 8px 18px rgba(236, 122, 92, 0.15);
+    }
+
+    .month-day {
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .month-meta {
+      color: var(--subtle);
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .month-course {
+      color: #20443a;
+      font-size: 10px;
+      line-height: 1.3;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(45, 122, 104, 0.1);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .note {
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      background: rgba(241, 201, 107, 0.16);
+      border: 1px solid rgba(241, 201, 107, 0.35);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #8a6500;
+    }
+
+    .day-card {
+      padding: 18px 16px 16px;
+      animation: rise 420ms ease both;
+    }
+
+    .day-card.is-today {
+      border-color: rgba(236, 122, 92, 0.36);
+      box-shadow: 0 24px 46px rgba(236, 122, 92, 0.16);
+    }
+
+    .day-card:nth-child(2) { animation-delay: 40ms; }
+    .day-card:nth-child(3) { animation-delay: 80ms; }
+    .day-card:nth-child(4) { animation-delay: 120ms; }
+    .day-card:nth-child(5) { animation-delay: 160ms; }
+    .day-card:nth-child(6) { animation-delay: 200ms; }
+    .day-card:nth-child(7) { animation-delay: 240ms; }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .day-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .day-head h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.05;
+    }
+
+    .day-head p {
+      margin: 6px 0 0;
+      color: var(--subtle);
+      font-size: 13px;
+    }
+
+    .day-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 58px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(19, 35, 30, 0.05);
+      color: var(--subtle);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .class-card {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 12px;
+      padding: 13px;
+      border-radius: var(--radius-md);
+      border: 1px solid color-mix(in srgb, var(--accent) 24%, white);
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, white), rgba(255, 255, 255, 0.84)),
+        white;
+    }
+
+    .class-time {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px 8px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(19, 35, 30, 0.06);
+    }
+
+    .class-time strong {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .class-time span {
+      font-size: 12px;
+      color: var(--subtle);
+    }
+
+    .class-time em {
+      margin-top: 4px;
+      font-style: normal;
+      font-size: 11px;
+      color: color-mix(in srgb, var(--accent) 68%, black);
+      font-weight: 700;
+    }
+
+    .class-main h4 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .class-meta {
+      display: grid;
+      gap: 7px;
+      margin-top: 8px;
+      color: var(--subtle);
+      font-size: 12px;
+    }
+
+    .class-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .class-action {
+      appearance: none;
+      border: 1px solid rgba(19, 35, 30, 0.1);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mini-pill {
+      display: inline-flex;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(19, 35, 30, 0.08);
+    }
+
+    .empty {
+      padding: 18px 14px;
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(19, 35, 30, 0.16);
+      color: var(--subtle);
+      font-size: 13px;
+      line-height: 1.5;
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .footer {
+      margin-top: 16px;
+      text-align: center;
+      color: rgba(19, 35, 30, 0.55);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 380px) {
+      .shell {
+        padding-inline: 12px;
+      }
+
+      .form-grid,
+      .button-row,
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .class-card {
+        grid-template-columns: 1fr;
+      }
+
+      .class-time {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="stack">
+      <section class="panel" id="todaySection">
+        <div class="overview-grid">
+          <div class="today-summary" id="todaySummary"></div>
+          <div class="today-list" id="todayClassList"></div>
+          <div class="button-row">
+            <button id="openOverviewButton" class="install-button" type="button">打开全览</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel overview-only" id="overviewControlSection" hidden>
+        <div class="section-title">
+          <h2>课表全览</h2>
+          <span id="zoomHint">本周视图</span>
+        </div>
+        <div class="button-row is-three">
+          <button id="backTodayButton" class="secondary-button" type="button">返回今日</button>
+          <button id="zoomInButton" class="secondary-button" type="button">放大</button>
+          <button id="zoomOutButton" class="secondary-button" type="button">缩小</button>
+        </div>
+      </section>
+
+      <section class="panel toolbar overview-only week-only" id="weekToolbarSection" hidden>
+        <div class="toolbar-row">
+          <button id="prevWeekButton" class="nav-button" type="button" aria-label="上一周">‹</button>
+          <div class="week-focus">
+            <strong id="weekLabel">第 1 周</strong>
+            <span id="weekRange">3月9日 - 3月15日</span>
+          </div>
+          <button id="nextWeekButton" class="nav-button" type="button" aria-label="下一周">›</button>
+        </div>
+        <div class="week-strip" id="weekStrip"></div>
+      </section>
+
+      <section class="panel overview-only week-only" id="weekStatsSection" hidden>
+        <div class="stat-grid" id="statGrid"></div>
+      </section>
+
+      <section class="panel overview-only week-only" id="weekNoteSection" hidden>
+        <div class="section-title">
+          <h2>本周提醒</h2>
+          <span>常规排课之外的备注安排</span>
+        </div>
+        <div class="note-list" id="noteList"></div>
+      </section>
+
+      <section class="overview-only week-only" id="weekDaySection" hidden>
+        <div class="day-list" id="dayList"></div>
+      </section>
+
+      <section class="panel overview-only" id="monthSection" hidden>
+        <div class="section-title">
+          <h2>本月课表</h2>
+          <span id="monthLabel">日历格子</span>
+        </div>
+        <div class="month-weekdays">
+          <span>周一</span>
+          <span>周二</span>
+          <span>周三</span>
+          <span>周四</span>
+          <span>周五</span>
+          <span>周六</span>
+          <span>周日</span>
+        </div>
+        <div class="month-grid" id="monthGrid"></div>
+      </section>
+
+      <section class="panel overview-only" id="termSection" hidden>
+        <div class="section-title">
+          <h2>学期总览</h2>
+          <span>按周汇总课时和时段</span>
+        </div>
+        <div class="note-list" id="termList"></div>
+      </section>
+
+      <section class="panel overview-only" id="adjustSection" hidden>
+        <div class="section-title">
+          <h2>手工调课</h2>
+          <span id="adjustWeekHint">仅保存在当前手机或浏览器</span>
+        </div>
+        <div class="adjust-grid">
+          <div class="badge-row">
+            <span class="adjust-chip" id="adjustScopeChip">当前作用范围：第 1 周</span>
+            <span class="adjust-chip">支持本周停课 / 临时加课</span>
+          </div>
+          <div class="install-note">
+            周视图里每节课右下角都可以直接“本周停课”或“删除临时课”。下面的表单用于补录临时课程。
+          </div>
+          <form id="adjustForm" class="form-grid">
+            <div class="field">
+              <label for="adjustDay">星期</label>
+              <select id="adjustDay" name="day"></select>
+            </div>
+            <div class="field">
+              <label for="adjustCourse">课程名</label>
+              <input id="adjustCourse" name="course" type="text" placeholder="例如：土木工程测量补课" required>
+            </div>
+            <div class="field">
+              <label for="adjustTeacher">老师</label>
+              <input id="adjustTeacher" name="teacher" type="text" placeholder="例如：曾卫">
+            </div>
+            <div class="field">
+              <label for="adjustRoom">地点</label>
+              <input id="adjustRoom" name="room" type="text" placeholder="例如：C5-112">
+            </div>
+            <div class="field">
+              <label for="adjustStartSection">开始节次</label>
+              <select id="adjustStartSection" name="startSection"></select>
+            </div>
+            <div class="field">
+              <label for="adjustEndSection">结束节次</label>
+              <select id="adjustEndSection" name="endSection"></select>
+            </div>
+            <div class="field is-full button-row">
+              <button class="install-button" type="submit">保存临时调课</button>
+              <button id="resetAdjustmentsButton" class="secondary-button" type="button">清空这一天调整</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <script src="./schedule-data.js"></script>
+  <script>
+    const DAY_CONFIG = [
+      { key: "mon", label: "周一" },
+      { key: "tue", label: "周二" },
+      { key: "wed", label: "周三" },
+      { key: "thu", label: "周四" },
+      { key: "fri", label: "周五" },
+      { key: "sat", label: "周六" },
+      { key: "sun", label: "周日" }
+    ];
+
+    const COURSE_COLORS = ["#2d7a68", "#dd7f5f", "#3d6cc8", "#9c694a", "#5f8f42", "#856bc9", "#c15f7a"];
+    const OVERRIDE_STORAGE_KEY = "smart-timetable-overrides-v1";
+
+    const data = window.SCHEDULE_DATA;
+
+    if (!data) {
+      throw new Error("Missing schedule-data.js");
+    }
+
+    const SECTION_TIMES = Object.fromEntries(
+      data.sectionTimes.map((item) => [Number(item.section), { start: item.start, end: item.end }])
+    );
+
+    const weekStrip = document.getElementById("weekStrip");
+    const dayList = document.getElementById("dayList");
+    const monthGrid = document.getElementById("monthGrid");
+    const termList = document.getElementById("termList");
+    const noteList = document.getElementById("noteList");
+    const statGrid = document.getElementById("statGrid");
+    const weekLabel = document.getElementById("weekLabel");
+    const weekRange = document.getElementById("weekRange");
+    const monthLabel = document.getElementById("monthLabel");
+    const zoomHint = document.getElementById("zoomHint");
+    const openOverviewButton = document.getElementById("openOverviewButton");
+    const backTodayButton = document.getElementById("backTodayButton");
+    const zoomInButton = document.getElementById("zoomInButton");
+    const zoomOutButton = document.getElementById("zoomOutButton");
+    const prevWeekButton = document.getElementById("prevWeekButton");
+    const nextWeekButton = document.getElementById("nextWeekButton");
+    const todaySummary = document.getElementById("todaySummary");
+    const todayClassList = document.getElementById("todayClassList");
+    const todaySection = document.getElementById("todaySection");
+    const adjustWeekHint = document.getElementById("adjustWeekHint");
+    const adjustScopeChip = document.getElementById("adjustScopeChip");
+    const adjustForm = document.getElementById("adjustForm");
+    const adjustDay = document.getElementById("adjustDay");
+    const adjustStartSection = document.getElementById("adjustStartSection");
+    const adjustEndSection = document.getElementById("adjustEndSection");
+    const resetAdjustmentsButton = document.getElementById("resetAdjustmentsButton");
+    const overviewControlSection = document.getElementById("overviewControlSection");
+    const weekToolbarSection = document.getElementById("weekToolbarSection");
+    const weekStatsSection = document.getElementById("weekStatsSection");
+    const weekNoteSection = document.getElementById("weekNoteSection");
+    const weekDaySection = document.getElementById("weekDaySection");
+    const monthSection = document.getElementById("monthSection");
+    const termSection = document.getElementById("termSection");
+    const adjustSection = document.getElementById("adjustSection");
+
+    const totalWeeks = Number(data.term.totalWeeks);
+    const ZOOM_LEVELS = ["week", "month", "term"];
+    const knownCourseNames = new Set(
+      Object.values(data.weeks).flatMap((week) =>
+        DAY_CONFIG.flatMap((day) => (week[day.key] || []).map((item) => item.course))
+      )
+    );
+    const currentWeek = getCurrentWeek();
+    let focusMode = "today";
+    let zoomLevel = "week";
+    let overrides = loadOverrides();
+    let adjustDayKey = getDefaultAdjustDay();
+    let selectedWeek = currentWeek;
+
+    init();
+
+    function init() {
+      populateAdjustControls();
+      buildWeekStrip();
+      bindControls();
+      setupPwa();
+      render();
+    }
+
+    function bindControls() {
+      openOverviewButton.addEventListener("click", () => {
+        focusMode = "overview";
+        zoomLevel = "week";
+        selectedWeek = getCurrentWeek();
+        render();
+      });
+
+      backTodayButton.addEventListener("click", () => {
+        focusMode = "today";
+        render();
+      });
+
+      zoomInButton.addEventListener("click", () => {
+        const index = ZOOM_LEVELS.indexOf(zoomLevel);
+        zoomLevel = ZOOM_LEVELS[Math.max(0, index - 1)];
+        render();
+      });
+
+      zoomOutButton.addEventListener("click", () => {
+        const index = ZOOM_LEVELS.indexOf(zoomLevel);
+        zoomLevel = ZOOM_LEVELS[Math.min(ZOOM_LEVELS.length - 1, index + 1)];
+        render();
+      });
+
+      prevWeekButton.addEventListener("click", () => {
+        selectedWeek = Math.max(1, selectedWeek - 1);
+        render();
+      });
+
+      nextWeekButton.addEventListener("click", () => {
+        selectedWeek = Math.min(totalWeeks, selectedWeek + 1);
+        render();
+      });
+
+      adjustDay.addEventListener("change", () => {
+        adjustDayKey = adjustDay.value;
+        renderAdjustmentScope();
+      });
+
+      adjustForm.addEventListener("submit", handleAdjustmentSubmit);
+      resetAdjustmentsButton.addEventListener("click", resetDayAdjustments);
+      dayList.addEventListener("click", handleClassAction);
+      todayClassList.addEventListener("click", handleClassAction);
+    }
+
+    function populateAdjustControls() {
+      adjustDay.innerHTML = DAY_CONFIG.map((day) => `<option value="${day.key}">${day.label}</option>`).join("");
+
+      const sectionOptions = data.sectionTimes.map((item) => {
+        const section = Number(item.section);
+        return `<option value="${section}">第 ${section} 节 · ${item.start}-${item.end}</option>`;
+      }).join("");
+
+      adjustStartSection.innerHTML = sectionOptions;
+      adjustEndSection.innerHTML = sectionOptions;
+      adjustDay.value = adjustDayKey;
+      adjustStartSection.value = "1";
+      adjustEndSection.value = "2";
+      renderAdjustmentScope();
+    }
+
+    function renderAdjustmentScope() {
+      const dayLabel = DAY_CONFIG.find((day) => day.key === adjustDayKey)?.label || "当天";
+      adjustScopeChip.textContent = `当前作用范围：第 ${selectedWeek} 周 · ${dayLabel}`;
+      adjustWeekHint.textContent = `这些调整只保存在当前设备，当前编辑的是第 ${selectedWeek} 周。`;
+    }
+
+    function handleAdjustmentSubmit(event) {
+      event.preventDefault();
+
+      const formData = new FormData(adjustForm);
+      const dayKey = String(formData.get("day"));
+      const course = String(formData.get("course") || "").trim();
+      const teacher = String(formData.get("teacher") || "").trim();
+      const room = String(formData.get("room") || "").trim();
+      const startSection = Number(formData.get("startSection"));
+      const endSection = Number(formData.get("endSection"));
+
+      if (!course) {
+        return;
+      }
+
+      const normalizedStart = Math.min(startSection, endSection);
+      const normalizedEnd = Math.max(startSection, endSection);
+      const periods = Array.from({ length: normalizedEnd - normalizedStart + 1 }, (_, index) => normalizedStart + index);
+      const item = makeCustomItem({
+        dayKey,
+        week: selectedWeek,
+        course,
+        teacher: teacher || "老师待补充",
+        room: room || "地点待补充",
+        periods
+      });
+
+      ensureOverrideBucket("added", selectedWeek, dayKey).push(item);
+      saveOverrides();
+
+      adjustForm.reset();
+      adjustDayKey = dayKey;
+      adjustDay.value = dayKey;
+      adjustStartSection.value = String(normalizedStart);
+      adjustEndSection.value = String(Math.min(normalizedEnd + 1, 14));
+      render();
+    }
+
+    function resetDayAdjustments() {
+      const weekKey = String(selectedWeek);
+      const dayKey = adjustDayKey;
+      if (overrides.added?.[weekKey]?.[dayKey]) {
+        delete overrides.added[weekKey][dayKey];
+      }
+      if (overrides.hidden?.[weekKey]?.[dayKey]) {
+        delete overrides.hidden[weekKey][dayKey];
+      }
+      saveOverrides();
+      render();
+    }
+
+    function handleClassAction(event) {
+      const button = event.target.closest("[data-class-action]");
+      if (!button) {
+        return;
+      }
+
+      const action = button.dataset.classAction;
+      const week = Number(button.dataset.week);
+      const dayKey = button.dataset.day;
+      const classId = button.dataset.classId;
+
+      if (!action || !dayKey || !week || !classId) {
+        return;
+      }
+
+      if (action === "hide") {
+        const hiddenBucket = ensureOverrideBucket("hidden", week, dayKey);
+        if (!hiddenBucket.includes(classId)) {
+          hiddenBucket.push(classId);
+        }
+      }
+
+      if (action === "delete") {
+        const weekKey = String(week);
+        const items = overrides.added?.[weekKey]?.[dayKey] || [];
+        overrides.added[weekKey][dayKey] = items.filter((item) => item.classId !== classId);
+      }
+
+      saveOverrides();
+      render();
+    }
+
+    function setupPwa() {
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", async () => {
+          try {
+            await navigator.serviceWorker.register("./sw.js");
+          } catch (error) {
+            console.error("Service worker registration failed", error);
+          }
+        });
+      }
+    }
+
+    function buildWeekStrip() {
+      weekStrip.innerHTML = "";
+      for (let week = 1; week <= totalWeeks; week += 1) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "week-chip";
+        button.textContent = `第${week}周`;
+        button.dataset.week = String(week);
+        button.addEventListener("click", () => {
+          selectedWeek = week;
+          render();
+        });
+        weekStrip.appendChild(button);
+      }
+    }
+
+    function render() {
+      renderAdjustmentScope();
+      renderTodayOverview();
+      renderOverviewVisibility();
+
+      if (focusMode !== "overview") {
+        return;
+      }
+
+      if (zoomLevel === "week") {
+        renderWeekOverview();
+      } else if (zoomLevel === "month") {
+        renderMonthOverview();
+      } else {
+        renderTermOverview();
+      }
+    }
+
+    function renderOverviewVisibility() {
+      const showOverview = focusMode === "overview";
+      todaySection.hidden = showOverview;
+      overviewControlSection.hidden = !showOverview;
+      adjustSection.hidden = !showOverview;
+
+      const showWeek = showOverview && zoomLevel === "week";
+      const showMonth = showOverview && zoomLevel === "month";
+      const showTerm = showOverview && zoomLevel === "term";
+
+      weekToolbarSection.hidden = !showWeek;
+      weekStatsSection.hidden = !showWeek;
+      weekNoteSection.hidden = !showWeek;
+      weekDaySection.hidden = !showWeek;
+      monthSection.hidden = !showMonth;
+      termSection.hidden = !showTerm;
+
+      const zoomText = {
+        week: "本周视图",
+        month: "本月视图",
+        term: "学期视图"
+      };
+      zoomHint.textContent = zoomText[zoomLevel] || "本周视图";
+      zoomInButton.disabled = zoomLevel === "week";
+      zoomOutButton.disabled = zoomLevel === "term";
+      zoomInButton.style.opacity = zoomLevel === "week" ? "0.45" : "1";
+      zoomOutButton.style.opacity = zoomLevel === "term" ? "0.45" : "1";
+    }
+
+    function renderWeekOverview() {
+      weekLabel.textContent = `第 ${selectedWeek} 周`;
+      weekRange.textContent = formatWeekRange(selectedWeek);
+
+      [...weekStrip.children].forEach((button) => {
+        button.classList.toggle("is-active", Number(button.dataset.week) === selectedWeek);
+      });
+
+      const activeChip = weekStrip.querySelector(`[data-week="${selectedWeek}"]`);
+      if (activeChip) {
+        activeChip.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      }
+
+      renderStats();
+      renderNotes();
+      renderDays();
+
+      prevWeekButton.disabled = selectedWeek === 1;
+      nextWeekButton.disabled = selectedWeek === totalWeeks;
+      prevWeekButton.style.opacity = selectedWeek === 1 ? "0.45" : "1";
+      nextWeekButton.style.opacity = selectedWeek === totalWeeks ? "0.45" : "1";
+    }
+
+    function renderMonthOverview() {
+      const startDate = getWeekDates(selectedWeek)[0];
+      const monthStart = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+      const monthEnd = new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0);
+      const today = stripTime(new Date());
+      const firstWeekday = (monthStart.getDay() + 6) % 7;
+      const totalDays = monthEnd.getDate();
+      monthLabel.textContent = `${monthStart.getFullYear()}年${monthStart.getMonth() + 1}月`;
+
+      const cells = [];
+      for (let index = 0; index < firstWeekday; index += 1) {
+        cells.push('<article class="month-cell is-outside"><div class="month-day"></div></article>');
+      }
+
+      for (let day = 1; day <= totalDays; day += 1) {
+        const date = new Date(monthStart.getFullYear(), monthStart.getMonth(), day);
+        const context = getDateContext(date);
+        const classes = context.inTerm ? getDayClasses(context.week, context.dayKey) : [];
+        const todayClassNames = [...new Set(classes.map((item) => item.course))].slice(0, 2);
+        const dayLabel = context.inTerm ? `第${context.week}周 ${DAY_CONFIG.find((item) => item.key === context.dayKey)?.label || ""}` : "非学期日期";
+
+        cells.push(`
+          <article class="month-cell ${isSameDate(date, today) ? "is-today" : ""}">
+            <div class="month-day">${day}</div>
+            <div class="month-meta">${dayLabel}</div>
+            <div class="month-meta">${classes.length ? `${classes.length} 节` : "无课"}</div>
+            ${todayClassNames.map((name) => `<div class="month-course">${escapeHtml(name)}</div>`).join("")}
+          </article>
+        `);
+      }
+
+      const totalGridCount = Math.ceil(cells.length / 7) * 7;
+      for (let index = cells.length; index < totalGridCount; index += 1) {
+        cells.push('<article class="month-cell is-outside"><div class="month-day"></div></article>');
+      }
+
+      monthGrid.innerHTML = cells.join("");
+    }
+
+    function renderTermOverview() {
+      const weekCards = [];
+      for (let week = 1; week <= totalWeeks; week += 1) {
+        const allClasses = DAY_CONFIG.flatMap((day) => getDayClasses(week, day.key));
+        const total = allClasses.length;
+        const earliest = total ? allClasses.reduce((min, item) => item.timeStart < min ? item.timeStart : min, "23:59") : "--:--";
+        const latest = total ? allClasses.reduce((max, item) => item.timeEnd > max ? item.timeEnd : max, "00:00") : "--:--";
+        const courses = [...new Set(allClasses.map((item) => item.course))].slice(0, 4);
+        weekCards.push(`
+          <article class="note">
+            <strong>第 ${week} 周 · ${formatWeekRange(week)}</strong>
+            <div>课时：${total} 节 · 时段：${earliest} - ${latest}</div>
+            <div>${courses.length ? `课程：${courses.join("、")}` : "本周无固定课程"}</div>
+          </article>
+        `);
+      }
+
+      termList.innerHTML = weekCards.join("");
+    }
+
+    function renderStats() {
+      const allClasses = DAY_CONFIG.flatMap((day) => getDayClasses(selectedWeek, day.key));
+      const earliest = allClasses.length ? allClasses.reduce((min, item) => item.timeStart < min ? item.timeStart : min, "23:59") : "--:--";
+      const latest = allClasses.length ? allClasses.reduce((max, item) => item.timeEnd > max ? item.timeEnd : max, "00:00") : "--:--";
+      const totalCourses = allClasses.length;
+
+      const statItems = [
+        { label: "排课总数", value: `${totalCourses} 节` },
+        { label: "最早开始", value: earliest },
+        { label: "最晚结束", value: latest }
+      ];
+
+      statGrid.innerHTML = statItems.map((item) => `
+        <article class="stat-card">
+          <span>${item.label}</span>
+          <strong>${item.value}</strong>
+        </article>
+      `).join("");
+    }
+
+    function renderTodayOverview() {
+      const context = getTodayContext();
+      const dayLabel = DAY_CONFIG.find((day) => day.key === context.dayKey)?.label || "今日";
+      const todayDate = formatDate(stripTime(new Date()));
+
+      if (context.mode === "preterm") {
+        todaySummary.textContent = `今天 ${todayDate}，学期还没开始。开学日期是 ${formatDate(parseDate(data.term.termStartMonday))}。`;
+      } else if (context.mode === "postterm") {
+        todaySummary.textContent = `今天 ${todayDate}，当前已超出本学期范围。你可以在全览里查看历史周次。`;
+      } else if (context.nextLesson) {
+        todaySummary.textContent = `今天 ${dayLabel} · 第 ${context.week} 周。下一节：${context.nextLesson.item.timeStart} ${context.nextLesson.item.course}（${context.countdownLabel}）`;
+      } else {
+        todaySummary.textContent = `今天 ${dayLabel} · 第 ${context.week} 周。今天课程已结束。`;
+      }
+
+      if (context.mode !== "interm") {
+        todayClassList.innerHTML = `<div class="empty">${context.mode === "preterm" ? "学期还没开始，今天不会显示正式课程。" : "当前已超出本学期范围。仍可在下方切换周次查看历史课表。"}</div>`;
+        return;
+      }
+
+      const todayClasses = getDayClasses(context.week, context.dayKey);
+      todayClassList.innerHTML = todayClasses.length
+        ? todayClasses.map((item) => renderClass(item, { week: context.week, dayKey: context.dayKey, compactAction: true })).join("")
+        : `<div class="empty">今天没有固定排课。${context.nextLesson ? `下一节是 ${context.nextLesson.dayLabel} 的 ${escapeHtml(context.nextLesson.item.course)}。` : "本周剩余时间也没有更多课程。"}</div>`;
+    }
+
+    function renderNotes() {
+      const activeNotes = data.noteItems.filter((item) => {
+        if (!item.weeks.includes(selectedWeek)) {
+          return false;
+        }
+        return ![...knownCourseNames].some((courseName) => item.label.startsWith(courseName));
+      });
+      const notesMarkup = [
+        ...activeNotes.map((item) => `
+          <article class="note">
+            <strong>第 ${selectedWeek} 周重点</strong>
+            <div>${escapeHtml(item.label)}</div>
+          </article>
+        `),
+        ...data.generalNotes.slice(0, 2).map((text) => `
+          <article class="note">
+            <strong>通用备注</strong>
+            <div>${escapeHtml(text)}</div>
+          </article>
+        `)
+      ];
+
+      noteList.innerHTML = notesMarkup.length
+        ? notesMarkup.join("")
+        : `<div class="empty">这周没有额外备注，按常规课表走。</div>`;
+    }
+
+    function renderDays() {
+      const dates = getWeekDates(selectedWeek);
+      const today = stripTime(new Date());
+
+      dayList.innerHTML = DAY_CONFIG.map((day, index) => {
+        const classes = getDayClasses(selectedWeek, day.key);
+        const date = dates[index];
+        const isToday = selectedWeek === currentWeek && isSameDate(date, today);
+        const content = classes.length
+          ? `<div class="class-list">${classes.map((item) => renderClass(item, { week: selectedWeek, dayKey: day.key })).join("")}</div>`
+          : `<div class="empty">这一天没有固定排课。${selectedWeek > 16 ? "可以重点看上面的备注安排。" : ""}</div>`;
+
+        return `
+          <article class="day-card ${isToday ? "is-today" : ""}">
+            <div class="day-head">
+              <div>
+                <h3>${day.label}</h3>
+                <p>${formatDate(date)} · ${isToday ? "今天" : "本周安排"}</p>
+              </div>
+              <div class="day-count">${classes.length ? `${classes.length} 节` : "空白"}</div>
+            </div>
+            ${content}
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderClass(item, options = {}) {
+      const accent = COURSE_COLORS[hashText(item.course) % COURSE_COLORS.length];
+      const teacher = simplifyTeacher(item.teacher);
+      const actionMarkup = options.week && options.dayKey
+        ? `<div class="class-actions">${
+            item.source === "custom"
+              ? `<button class="class-action" type="button" data-class-action="delete" data-week="${options.week}" data-day="${options.dayKey}" data-class-id="${item.classId}">删除临时课</button>`
+              : `<button class="class-action" type="button" data-class-action="hide" data-week="${options.week}" data-day="${options.dayKey}" data-class-id="${item.classId}">本周停课</button>`
+          }</div>`
+        : "";
+      return `
+        <article class="class-card ${item.source === "custom" ? "is-custom" : ""}" style="--accent:${accent}">
+          <div class="class-time">
+            <strong>${item.timeStart}</strong>
+            <span>${item.timeEnd}</span>
+            <em>${escapeHtml(item.periodLabel)}</em>
+          </div>
+          <div class="class-main">
+            <h4>${escapeHtml(item.course)}</h4>
+            <div class="class-meta">
+              <div>${escapeHtml(teacher)}</div>
+              <div class="pill-row">
+                <span class="mini-pill">${escapeHtml(item.room)}</span>
+                <span class="mini-pill">第 ${item.startSection}${item.endSection === item.startSection ? "" : `-${item.endSection}`} 节</span>
+                ${item.source === "custom" ? '<span class="mini-pill">临时调课</span>' : ""}
+              </div>
+              ${actionMarkup}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function getDayClasses(week, dayKey) {
+      const baseClasses = getBaseDayClasses(week, dayKey);
+      const hiddenSet = new Set(overrides.hidden?.[String(week)]?.[dayKey] || []);
+      const addedClasses = (overrides.added?.[String(week)]?.[dayKey] || []).map((item) => ({
+        ...item,
+        source: "custom",
+        classId: item.classId || buildClassId(item, "custom")
+      }));
+
+      return [...baseClasses.filter((item) => !hiddenSet.has(item.classId)), ...addedClasses]
+        .sort((a, b) => (a.startSection - b.startSection) || (a.endSection - b.endSection) || a.course.localeCompare(b.course, "zh-CN"));
+    }
+
+    function getBaseDayClasses(week, dayKey) {
+      return (data.weeks[String(week)]?.[dayKey] || []).map((item) => ({
+        ...item,
+        source: "base",
+        classId: buildClassId(item, "base")
+      }));
+    }
+
+    function buildClassId(item, source) {
+      return `${source}-${hashText([item.course, item.teacher, item.room, item.periodLabel, item.timeStart, item.timeEnd].join("|"))}`;
+    }
+
+    function makeCustomItem({ week, dayKey, course, teacher, room, periods }) {
+      const startSection = Math.min(...periods);
+      const endSection = Math.max(...periods);
+      const periodLabel = `[${periods.map((period) => String(period).padStart(2, "0")).join("-")}]节`;
+      const item = {
+        course,
+        teacher,
+        room,
+        periods,
+        periodLabel,
+        startSection,
+        endSection,
+        timeStart: SECTION_TIMES[startSection].start,
+        timeEnd: SECTION_TIMES[endSection].end,
+        source: "custom",
+        week,
+        dayKey
+      };
+      item.classId = buildClassId(item, `custom-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`);
+      return item;
+    }
+
+    function ensureOverrideBucket(type, week, dayKey) {
+      const weekKey = String(week);
+      overrides[type] ||= {};
+      overrides[type][weekKey] ||= {};
+      overrides[type][weekKey][dayKey] ||= [];
+      return overrides[type][weekKey][dayKey];
+    }
+
+    function loadOverrides() {
+      try {
+        const raw = localStorage.getItem(OVERRIDE_STORAGE_KEY);
+        if (!raw) {
+          return { hidden: {}, added: {} };
+        }
+        const parsed = JSON.parse(raw);
+        return {
+          hidden: parsed.hidden || {},
+          added: parsed.added || {}
+        };
+      } catch (error) {
+        console.error("Failed to load overrides", error);
+        return { hidden: {}, added: {} };
+      }
+    }
+
+    function saveOverrides() {
+      localStorage.setItem(OVERRIDE_STORAGE_KEY, JSON.stringify(overrides));
+    }
+
+    function getDefaultAdjustDay() {
+      const context = getTodayContext();
+      return context.dayKey || "mon";
+    }
+
+    function getDateContext(date) {
+      const dateOnly = stripTime(date);
+      const termStart = parseDate(data.term.termStartMonday);
+      const diff = Math.floor((dateOnly - termStart) / 86400000);
+      if (diff < 0) {
+        return { inTerm: false, date: dateOnly };
+      }
+      const week = Math.floor(diff / 7) + 1;
+      if (week < 1 || week > totalWeeks) {
+        return { inTerm: false, date: dateOnly };
+      }
+      const dayIndex = diff % 7;
+      return {
+        inTerm: true,
+        date: dateOnly,
+        week,
+        dayKey: DAY_CONFIG[dayIndex]?.key || "mon"
+      };
+    }
+
+    function getTodayContext() {
+      const today = new Date();
+      const dateOnly = stripTime(today);
+      const termStart = parseDate(data.term.termStartMonday);
+      const termEnd = parseDate(data.term.termStartMonday);
+      termEnd.setDate(termEnd.getDate() + totalWeeks * 7 - 1);
+
+      if (dateOnly < termStart) {
+        const nextLesson = findFirstLessonFromWeek(1);
+        return {
+          mode: "preterm",
+          dayKey: "mon",
+          week: 1,
+          hint: `今天是 ${formatDate(dateOnly)}，还没到开学周。`,
+          nextLesson
+        };
+      }
+
+      if (dateOnly > termEnd) {
+        return {
+          mode: "postterm",
+          dayKey: "sun",
+          week: totalWeeks,
+          hint: `今天是 ${formatDate(dateOnly)}，已经超出本学期范围。`,
+          nextLesson: null
+        };
+      }
+
+      const week = getCurrentWeek();
+      const weekDates = getWeekDates(week);
+      const dayIndex = weekDates.findIndex((date) => isSameDate(date, dateOnly));
+      const dayKey = DAY_CONFIG[Math.max(dayIndex, 0)]?.key || "mon";
+      const nextLesson = findNextLesson(week, dayKey, today);
+
+      return {
+        mode: "interm",
+        dayKey,
+        week,
+        hint: `今天是 ${formatDate(dateOnly)} · 第 ${week} 周 · ${DAY_CONFIG.find((day) => day.key === dayKey)?.label || "本周"}`,
+        nextLesson,
+        countdownLabel: nextLesson ? describeTimeUntil(nextLesson.dateTime) : ""
+      };
+    }
+
+    function findFirstLessonFromWeek(startWeek) {
+      for (let week = startWeek; week <= totalWeeks; week += 1) {
+        const dates = getWeekDates(week);
+        for (let index = 0; index < DAY_CONFIG.length; index += 1) {
+          const dayKey = DAY_CONFIG[index].key;
+          const classes = getDayClasses(week, dayKey);
+          if (classes.length) {
+            return {
+              week,
+              dayKey,
+              dayLabel: DAY_CONFIG[index].label,
+              item: classes[0],
+              dateTime: combineDateAndTime(dates[index], classes[0].timeStart)
+            };
+          }
+        }
+      }
+      return null;
+    }
+
+    function findNextLesson(currentWeekNumber, currentDayKey, now) {
+      const currentDayIndex = DAY_CONFIG.findIndex((day) => day.key === currentDayKey);
+      for (let week = currentWeekNumber; week <= totalWeeks; week += 1) {
+        const dates = getWeekDates(week);
+        const startDayIndex = week === currentWeekNumber ? Math.max(currentDayIndex, 0) : 0;
+        for (let index = startDayIndex; index < DAY_CONFIG.length; index += 1) {
+          const dayKey = DAY_CONFIG[index].key;
+          const classes = getDayClasses(week, dayKey);
+          for (const item of classes) {
+            const startDateTime = combineDateAndTime(dates[index], item.timeStart);
+            if (startDateTime > now) {
+              return {
+                week,
+                dayKey,
+                dayLabel: DAY_CONFIG[index].label,
+                item,
+                dateTime: startDateTime
+              };
+            }
+          }
+        }
+      }
+      return null;
+    }
+
+    function combineDateAndTime(date, time) {
+      const [hours, minutes] = time.split(":").map(Number);
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate(), hours, minutes, 0, 0);
+    }
+
+    function describeTimeUntil(targetDate) {
+      const diff = targetDate.getTime() - Date.now();
+      if (diff <= 0) {
+        return "已经到上课时间。";
+      }
+      const totalMinutes = Math.floor(diff / 60000);
+      const days = Math.floor(totalMinutes / 1440);
+      const hours = Math.floor((totalMinutes % 1440) / 60);
+      const minutes = totalMinutes % 60;
+
+      if (days > 0) {
+        return `距离上课还有 ${days} 天 ${hours} 小时`;
+      }
+      if (hours > 0) {
+        return `距离上课还有 ${hours} 小时 ${minutes} 分钟`;
+      }
+      return `距离上课还有 ${Math.max(1, minutes)} 分钟`;
+    }
+
+    function getCurrentWeek() {
+      const today = stripTime(new Date());
+      const start = parseDate(data.term.termStartMonday);
+      const diff = Math.floor((today - start) / 86400000);
+      if (diff < 0) {
+        return 1;
+      }
+      return Math.min(totalWeeks, Math.floor(diff / 7) + 1);
+    }
+
+    function getWeekDates(week) {
+      const monday = parseDate(data.term.termStartMonday);
+      monday.setDate(monday.getDate() + (week - 1) * 7);
+      return DAY_CONFIG.map((_, index) => {
+        const date = new Date(monday);
+        date.setDate(monday.getDate() + index);
+        return date;
+      });
+    }
+
+    function formatWeekRange(week) {
+      const dates = getWeekDates(week);
+      return `${formatDate(dates[0], true)} - ${formatDate(dates[6], true)}`;
+    }
+
+    function formatDate(date, compact = false) {
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      return compact ? `${month}月${day}日` : `${month}月${day}日`;
+    }
+
+    function parseDate(raw) {
+      const [year, month, day] = raw.split("-").map(Number);
+      return new Date(year, month - 1, day);
+    }
+
+    function stripTime(date) {
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
+
+    function isSameDate(a, b) {
+      return a.getFullYear() === b.getFullYear()
+        && a.getMonth() === b.getMonth()
+        && a.getDate() === b.getDate();
+    }
+
+    function extractField(label) {
+      const match = data.term.details.match(new RegExp(`${label}：(.+?)(?=\\s{2,}|$)`));
+      return match ? match[1].trim() : "";
+    }
+
+    function simplifyTeacher(raw) {
+      const cleaned = raw
+        .replace(/（[^）]*）/g, "")
+        .replace(/\([^)]*\)/g, "")
+        .replace(/\s+/g, "")
+        .replace(/,+/g, "、");
+      return cleaned || "教师待补充";
+    }
+
+    function hashText(text) {
+      let hash = 0;
+      for (const char of text) {
+        hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+      }
+      return hash;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+  </script>
+</body>
+</html>
