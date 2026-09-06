@@ -1,8 +1,9 @@
-const CACHE_NAME = "smart-timetable-v1";
+const CACHE_NAME = "smart-timetable-2026-2027-1-v3";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./schedule-data.js",
+  "./schedule-data.js?v=2026-2027-1-v3",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
@@ -21,7 +22,7 @@ self.addEventListener("activate", (event) => {
     caches.keys().then((keys) =>
       Promise.all(
         keys
-          .filter((key) => key !== CACHE_NAME)
+          .filter((key) => key.startsWith("smart-timetable-") && key !== CACHE_NAME)
           .map((key) => caches.delete(key))
       )
     ).then(() => self.clients.claim())

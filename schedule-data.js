@@ -1,8 +1,10 @@
 window.SCHEDULE_DATA = {
   "term": {
     "title": "佛山大学 苏永杰 学生个人课表",
-    "details": "学年学期：2025-2026-2        班级：24土木工程3        所属班级：土木工程        学院：土木与交通学院        打印日期：2026-03-04",
-    "termStartMonday": "2026-03-09",
+    "details": "学年学期：2026-2027-1        班级：24土木工程3        所属班级：土木工程        学院：土木与交通学院        打印日期：2026-09-06",
+    "id": "2026-2027-1",
+    "termStartMonday": "2026-09-07",
+    "weekStartDate": "2026-09-06",
     "totalWeeks": 19
   },
   "sectionTimes": [
@@ -81,23 +83,9 @@ window.SCHEDULE_DATA = {
     "1": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "结构力学1",
+          "course": "结构力学2",
           "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "room": "C5-106",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -107,27 +95,13 @@ window.SCHEDULE_DATA = {
           "endSection": 7,
           "timeStart": "13:30",
           "timeEnd": "14:55"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
         }
       ],
       "tue": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -139,68 +113,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-108",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
-        }
-      ],
-      "wed": [
-        {
-          "course": "工程荷载与可靠度设计",
+          "course": "结构检验",
           "teacher": "王英涛(讲师（高校）)",
-          "room": "C5-109",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程地质",
-          "teacher": "雷国平(讲师（高校）),曾卫(讲师（高校）)",
-          "room": "C5-306",
+          "room": "C3-309",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -210,13 +125,43 @@ window.SCHEDULE_DATA = {
           "endSection": 4,
           "timeStart": "09:40",
           "timeEnd": "11:05"
+        },
+        {
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
         }
       ],
+      "wed": [],
       "thu": [
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
+          "periodLabel": "[01-02]节",
+          "periods": [
+            1,
+            2
+          ],
+          "startSection": 1,
+          "endSection": 2,
+          "timeStart": "08:00",
+          "timeEnd": "09:25"
+        },
+        {
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -228,39 +173,26 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
           "periods": [
-            6,
-            7
+            8,
+            9,
+            10
           ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
         }
       ],
       "fri": [
         {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-111",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "工程荷载与可靠度设计",
+          "course": "结构检验",
           "teacher": "王英涛(讲师（高校）)",
-          "room": "C5-106",
+          "room": "C3-309",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -278,67 +210,9 @@ window.SCHEDULE_DATA = {
     "2": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
-        }
-      ],
-      "tue": [
-        {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -350,9 +224,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-108",
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -362,28 +236,13 @@ window.SCHEDULE_DATA = {
           "endSection": 7,
           "timeStart": "13:30",
           "timeEnd": "14:55"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
         }
       ],
-      "wed": [
+      "tue": [
         {
-          "course": "工程荷载与可靠度设计",
-          "teacher": "王英涛(讲师（高校）)",
-          "room": "C5-109",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -395,9 +254,40 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "土木工程地质",
-          "teacher": "雷国平(讲师（高校）),曾卫(讲师（高校）)",
-          "room": "C5-306",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "C3-309",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        },
+        {
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
+        }
+      ],
+      "wed": [
+        {
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -411,39 +301,9 @@ window.SCHEDULE_DATA = {
       ],
       "thu": [
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        }
-      ],
-      "fri": [
-        {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-111",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -455,9 +315,40 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "工程荷载与可靠度设计",
-          "teacher": "王英涛(讲师（高校）)",
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
           "room": "C5-106",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        },
+        {
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
+        }
+      ],
+      "fri": [
+        {
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "C3-309",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -475,67 +366,9 @@ window.SCHEDULE_DATA = {
     "3": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
-        }
-      ],
-      "tue": [
-        {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -547,9 +380,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-108",
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -559,28 +392,13 @@ window.SCHEDULE_DATA = {
           "endSection": 7,
           "timeStart": "13:30",
           "timeEnd": "14:55"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
         }
       ],
-      "wed": [
+      "tue": [
         {
-          "course": "工程荷载与可靠度设计",
-          "teacher": "王英涛(讲师（高校）)",
-          "room": "C5-109",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -592,9 +410,40 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "土木工程地质",
-          "teacher": "雷国平(讲师（高校）),曾卫(讲师（高校）)",
-          "room": "C5-306",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "C3-309",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        },
+        {
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
+        }
+      ],
+      "wed": [
+        {
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -608,39 +457,9 @@ window.SCHEDULE_DATA = {
       ],
       "thu": [
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        }
-      ],
-      "fri": [
-        {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-111",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -652,8 +471,8 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "工程荷载与可靠度设计",
-          "teacher": "王英涛(讲师（高校）)",
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
           "room": "C5-106",
           "periodLabel": "[03-04]节",
           "periods": [
@@ -664,31 +483,77 @@ window.SCHEDULE_DATA = {
           "endSection": 4,
           "timeStart": "09:40",
           "timeEnd": "11:05"
+        },
+        {
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
         }
       ],
+      "fri": [],
       "sat": [],
-      "sun": []
+      "sun": [
+        {
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
+          "periodLabel": "[01-02]节",
+          "periods": [
+            1,
+            2
+          ],
+          "startSection": 1,
+          "endSection": 2,
+          "timeStart": "08:00",
+          "timeEnd": "09:25"
+        },
+        {
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
+        }
+      ]
     },
     "4": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
+          "periodLabel": "[03-04]节",
           "periods": [
-            1,
-            2
+            3,
+            4
           ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
+          "course": "结构力学2",
           "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "room": "C5-106",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -698,27 +563,13 @@ window.SCHEDULE_DATA = {
           "endSection": 7,
           "timeStart": "13:30",
           "timeEnd": "14:55"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
         }
       ],
       "tue": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -730,9 +581,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "C3-309",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -744,54 +595,26 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-108",
-          "periodLabel": "[06-07]节",
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
           "periods": [
-            6,
-            7
+            8,
+            9,
+            10
           ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
         }
       ],
       "wed": [
         {
-          "course": "工程荷载与可靠度设计",
-          "teacher": "王英涛(讲师（高校）)",
-          "room": "C5-109",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程地质",
-          "teacher": "雷国平(讲师（高校）),曾卫(讲师（高校）)",
-          "room": "C5-306",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -803,179 +626,34 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         }
       ],
-      "thu": [
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        }
-      ],
-      "fri": [
-        {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-111",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "工程荷载与可靠度设计",
-          "teacher": "王英涛(讲师（高校）)",
-          "room": "C5-106",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        }
-      ],
+      "thu": [],
+      "fri": [],
       "sat": [],
       "sun": []
     },
     "5": {
       "mon": [],
-      "tue": [
-        {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-108",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-102",
-          "periodLabel": "[08-09]节",
-          "periods": [
-            8,
-            9
-          ],
-          "startSection": 8,
-          "endSection": 9,
-          "timeStart": "15:10",
-          "timeEnd": "16:35"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
-        }
-      ],
-      "wed": [
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-109",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程地质",
-          "teacher": "雷国平(讲师（高校）),曾卫(讲师（高校）)",
-          "room": "C5-306",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        }
-      ],
+      "tue": [],
+      "wed": [],
       "thu": [
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
+          "periodLabel": "[01-02]节",
+          "periods": [
+            1,
+            2
+          ],
+          "startSection": 1,
+          "endSection": 2,
+          "timeStart": "08:00",
+          "timeEnd": "09:25"
+        },
+        {
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -987,9 +665,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -1001,39 +679,26 @@ window.SCHEDULE_DATA = {
           "timeEnd": "14:55"
         },
         {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-106",
-          "periodLabel": "[08-09]节",
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
           "periods": [
             8,
-            9
+            9,
+            10
           ],
           "startSection": 8,
-          "endSection": 9,
+          "endSection": 10,
           "timeStart": "15:10",
-          "timeEnd": "16:35"
+          "timeEnd": "17:20"
         }
       ],
       "fri": [
         {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-111",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-306",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "C3-309",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1043,89 +708,32 @@ window.SCHEDULE_DATA = {
           "endSection": 4,
           "timeStart": "09:40",
           "timeEnd": "11:05"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
         }
       ],
-      "sat": [],
+      "sat": [
+        {
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        }
+      ],
       "sun": []
     },
     "6": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
-        }
-      ],
-      "tue": [
-        {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1137,9 +745,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-108",
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -1151,41 +759,25 @@ window.SCHEDULE_DATA = {
           "timeEnd": "14:55"
         },
         {
-          "course": "土木工程测量",
-          "teacher": "吴方红(讲师（高校）)",
-          "room": "校内（仙溪）",
-          "periodLabel": "[08-09-10]节",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
+          "periodLabel": "[08-09]节",
           "periods": [
             8,
-            9,
-            10
+            9
           ],
           "startSection": 8,
-          "endSection": 10,
+          "endSection": 9,
           "timeStart": "15:10",
-          "timeEnd": "17:20"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
+          "timeEnd": "16:35"
         }
       ],
-      "wed": [
+      "tue": [
         {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-109",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -1197,9 +789,26 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "土木工程地质",
-          "teacher": "雷国平(讲师（高校）),曾卫(讲师（高校）)",
-          "room": "C5-306",
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
+        }
+      ],
+      "wed": [
+        {
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1213,9 +822,23 @@ window.SCHEDULE_DATA = {
       ],
       "thu": [
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
+          "periodLabel": "[01-02]节",
+          "periods": [
+            1,
+            2
+          ],
+          "startSection": 1,
+          "endSection": 2,
+          "timeStart": "08:00",
+          "timeEnd": "09:25"
+        },
+        {
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1227,9 +850,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -1241,9 +864,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "14:55"
         },
         {
-          "course": "土木工程测量",
-          "teacher": "吴方红(讲师（高校）)",
-          "room": "校内（仙溪）",
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
           "periodLabel": "[08-09-10]节",
           "periods": [
             8,
@@ -1258,18 +881,18 @@ window.SCHEDULE_DATA = {
       ],
       "fri": [
         {
-          "course": "水力学",
-          "teacher": "李俊辉(讲师（高校）)",
-          "room": "C5-111",
-          "periodLabel": "[01-02]节",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "C3-309",
+          "periodLabel": "[03-04]节",
           "periods": [
-            1,
-            2
+            3,
+            4
           ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
         }
       ],
       "sat": [],
@@ -1278,23 +901,9 @@ window.SCHEDULE_DATA = {
     "7": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-112",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1306,9 +915,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
+          "course": "结构力学2",
           "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "room": "C5-106",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -1320,9 +929,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "14:55"
         },
         {
-          "course": "土木工程开拓创新实验2",
-          "teacher": "李犇(讲师（高校）)",
-          "room": "B4-226",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[08-09]节",
           "periods": [
             8,
@@ -1332,27 +941,13 @@ window.SCHEDULE_DATA = {
           "endSection": 9,
           "timeStart": "15:10",
           "timeEnd": "16:35"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
         }
       ],
       "tue": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -1364,84 +959,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
-        }
-      ],
-      "wed": [
-        {
-          "course": "土木工程地质",
-          "teacher": "雷国平(讲师（高校）),曾卫(讲师（高校）)",
-          "room": "C5-306",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        }
-      ],
-      "thu": [
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程测量",
-          "teacher": "吴方红(讲师（高校）)",
-          "room": "校内（仙溪）",
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
           "periodLabel": "[08-09-10]节",
           "periods": [
             8,
@@ -1454,148 +974,11 @@ window.SCHEDULE_DATA = {
           "timeEnd": "17:20"
         }
       ],
-      "fri": [
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-110",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        }
-      ],
-      "sat": [],
-      "sun": []
-    },
-    "8": {
-      "mon": [
-        {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-112",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程开拓创新实验2",
-          "teacher": "李犇(讲师（高校）)",
-          "room": "B4-226",
-          "periodLabel": "[08-09]节",
-          "periods": [
-            8,
-            9
-          ],
-          "startSection": 8,
-          "endSection": 9,
-          "timeStart": "15:10",
-          "timeEnd": "16:35"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
-        }
-      ],
-      "tue": [
-        {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
-        }
-      ],
       "wed": [
         {
-          "course": "土木工程地质",
-          "teacher": "雷国平(讲师（高校）),曾卫(讲师（高校）)",
-          "room": "C5-306",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1609,9 +992,9 @@ window.SCHEDULE_DATA = {
       ],
       "thu": [
         {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-108",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -1623,9 +1006,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1637,9 +1020,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -1651,9 +1034,164 @@ window.SCHEDULE_DATA = {
           "timeEnd": "14:55"
         },
         {
-          "course": "土木工程测量",
-          "teacher": "吴方红(讲师（高校）)",
-          "room": "校内（仙溪）",
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
+        }
+      ],
+      "fri": [],
+      "sat": [],
+      "sun": []
+    },
+    "8": {
+      "mon": [
+        {
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        },
+        {
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
+          "periodLabel": "[06-07]节",
+          "periods": [
+            6,
+            7
+          ],
+          "startSection": 6,
+          "endSection": 7,
+          "timeStart": "13:30",
+          "timeEnd": "14:55"
+        },
+        {
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
+          "periodLabel": "[08-09]节",
+          "periods": [
+            8,
+            9
+          ],
+          "startSection": 8,
+          "endSection": 9,
+          "timeStart": "15:10",
+          "timeEnd": "16:35"
+        }
+      ],
+      "tue": [
+        {
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
+          "periodLabel": "[01-02]节",
+          "periods": [
+            1,
+            2
+          ],
+          "startSection": 1,
+          "endSection": 2,
+          "timeStart": "08:00",
+          "timeEnd": "09:25"
+        },
+        {
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
+          "periods": [
+            8,
+            9,
+            10
+          ],
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
+        }
+      ],
+      "wed": [
+        {
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        }
+      ],
+      "thu": [
+        {
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
+          "periodLabel": "[01-02]节",
+          "periods": [
+            1,
+            2
+          ],
+          "startSection": 1,
+          "endSection": 2,
+          "timeStart": "08:00",
+          "timeEnd": "09:25"
+        },
+        {
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        },
+        {
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
+          "periodLabel": "[06-07]节",
+          "periods": [
+            6,
+            7
+          ],
+          "startSection": 6,
+          "endSection": 7,
+          "timeStart": "13:30",
+          "timeEnd": "14:55"
+        },
+        {
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
           "periodLabel": "[08-09-10]节",
           "periods": [
             8,
@@ -1671,26 +1209,11 @@ window.SCHEDULE_DATA = {
       "sun": []
     },
     "9": {
-      "mon": [],
-      "tue": [
+      "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1702,9 +1225,23 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
+          "course": "结构力学2",
           "teacher": "吕学涛(副教授)",
-          "room": "C5-102",
+          "room": "C5-106",
+          "periodLabel": "[06-07]节",
+          "periods": [
+            6,
+            7
+          ],
+          "startSection": 6,
+          "endSection": 7,
+          "timeStart": "13:30",
+          "timeEnd": "14:55"
+        },
+        {
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[08-09]节",
           "periods": [
             8,
@@ -1714,28 +1251,30 @@ window.SCHEDULE_DATA = {
           "endSection": 9,
           "timeStart": "15:10",
           "timeEnd": "16:35"
-        },
+        }
+      ],
+      "tue": [
         {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
+          "course": "混凝土结构设计原理",
+          "teacher": "卢汉文(副教授)",
+          "room": "C5-113",
+          "periodLabel": "[08-09-10]节",
           "periods": [
-            11,
-            12,
-            13
+            8,
+            9,
+            10
           ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
+          "startSection": 8,
+          "endSection": 10,
+          "timeStart": "15:10",
+          "timeEnd": "17:20"
         }
       ],
       "wed": [
         {
-          "course": "形势与政策4",
-          "teacher": "熊伟(讲师（高校）)",
-          "room": "C3-209",
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -1747,9 +1286,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "土木工程开拓创新实验2",
-          "teacher": "李犇(讲师（高校）)",
-          "room": "B4-226",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1763,9 +1302,9 @@ window.SCHEDULE_DATA = {
       ],
       "thu": [
         {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-108",
+          "course": "土力学",
+          "teacher": "王祥秋(教授)",
+          "room": "C5-302",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -1777,9 +1316,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
+          "course": "结构力学2",
+          "teacher": "吕学涛(副教授)",
+          "room": "C5-106",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1791,9 +1330,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -1805,9 +1344,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "14:55"
         },
         {
-          "course": "土木工程测量",
+          "course": "土木工程开拓创新实验3",
           "teacher": "吴方红(讲师（高校）)",
-          "room": "校内（仙溪）",
+          "room": "B4-216",
           "periodLabel": "[08-09-10]节",
           "periods": [
             8,
@@ -1820,59 +1359,16 @@ window.SCHEDULE_DATA = {
           "timeEnd": "17:20"
         }
       ],
-      "fri": [
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-110",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        }
-      ],
+      "fri": [],
       "sat": [],
       "sun": []
     },
     "10": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-112",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1884,23 +1380,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程开拓创新实验2",
-          "teacher": "李犇(讲师（高校）)",
-          "room": "B4-226",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[08-09]节",
           "periods": [
             8,
@@ -1910,41 +1392,13 @@ window.SCHEDULE_DATA = {
           "endSection": 9,
           "timeStart": "15:10",
           "timeEnd": "16:35"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
         }
       ],
       "tue": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-204",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "结构力学定性与策略",
+          "teacher": "潘宏树()",
+          "room": "C5-107",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -1954,58 +1408,13 @@ window.SCHEDULE_DATA = {
           "endSection": 4,
           "timeStart": "09:40",
           "timeEnd": "11:05"
-        },
-        {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
-          "periodLabel": "[08-09]节",
-          "periods": [
-            8,
-            9
-          ],
-          "startSection": 8,
-          "endSection": 9,
-          "timeStart": "15:10",
-          "timeEnd": "16:35"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
         }
       ],
       "wed": [
         {
-          "course": "形势与政策4",
-          "teacher": "熊伟(讲师（高校）)",
-          "room": "C3-209",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        }
-      ],
-      "thu": [
-        {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -2017,9 +1426,25 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        }
+      ],
+      "thu": [
+        {
+          "course": "结构力学定性与策略",
+          "teacher": "潘宏树()",
+          "room": "C5-108",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -2031,9 +1456,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -2045,9 +1470,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "14:55"
         },
         {
-          "course": "土木工程测量",
+          "course": "土木工程开拓创新实验3",
           "teacher": "吴方红(讲师（高校）)",
-          "room": "校内（仙溪）",
+          "room": "B4-216",
           "periodLabel": "[08-09-10]节",
           "periods": [
             8,
@@ -2060,45 +1485,16 @@ window.SCHEDULE_DATA = {
           "timeEnd": "17:20"
         }
       ],
-      "fri": [
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-110",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        }
-      ],
+      "fri": [],
       "sat": [],
       "sun": []
     },
     "11": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-112",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -2110,23 +1506,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程开拓创新实验2",
-          "teacher": "李犇(讲师（高校）)",
-          "room": "B4-116",
+          "course": "结构检验",
+          "teacher": "王英涛(讲师（高校）)",
+          "room": "B4-314",
           "periodLabel": "[08-09]节",
           "periods": [
             8,
@@ -2136,27 +1518,13 @@ window.SCHEDULE_DATA = {
           "endSection": 9,
           "timeStart": "15:10",
           "timeEnd": "16:35"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
         }
       ],
       "tue": [
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "结构力学定性与策略",
+          "teacher": "潘宏树()",
+          "room": "C5-107",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -2168,56 +1536,27 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
-          "periodLabel": "[08-09]节",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "校内（仙溪）",
+          "periodLabel": "[06-07-08-09]节",
           "periods": [
+            6,
+            7,
             8,
             9
           ],
-          "startSection": 8,
+          "startSection": 6,
           "endSection": 9,
-          "timeStart": "15:10",
+          "timeStart": "13:30",
           "timeEnd": "16:35"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
         }
       ],
       "wed": [
         {
-          "course": "形势与政策4",
-          "teacher": "熊伟(讲师（高校）)",
-          "room": "C3-209",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        }
-      ],
-      "thu": [
-        {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -2229,9 +1568,25 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         },
         {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
+        }
+      ],
+      "thu": [
+        {
+          "course": "结构力学定性与策略",
+          "teacher": "潘宏树()",
+          "room": "C5-108",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -2243,23 +1598,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程测量",
+          "course": "土木工程开拓创新实验3",
           "teacher": "吴方红(讲师（高校）)",
-          "room": "校内（仙溪）",
+          "room": "B4-216",
           "periodLabel": "[08-09-10]节",
           "periods": [
             8,
@@ -2272,103 +1613,33 @@ window.SCHEDULE_DATA = {
           "timeEnd": "17:20"
         }
       ],
-      "fri": [
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-110",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        }
-      ],
+      "fri": [],
       "sat": [],
       "sun": []
     },
     "12": {
       "mon": [
         {
-          "course": "习近平新时代中国特色社会主义思想概论",
-          "teacher": "徐永利()",
-          "room": "C3-203",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-112",
-          "periodLabel": "[03-04]节",
+          "course": "土木工程开拓创新实验3",
+          "teacher": "吴方红(讲师（高校）)",
+          "room": "B4-222",
+          "periodLabel": "[03-04-05]节",
           "periods": [
             3,
-            4
+            4,
+            5
           ],
           "startSection": 3,
-          "endSection": 4,
+          "endSection": 5,
           "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程开拓创新实验2",
-          "teacher": "李犇(讲师（高校）)",
-          "room": "B4-116",
-          "periodLabel": "[08-09]节",
-          "periods": [
-            8,
-            9
-          ],
-          "startSection": 8,
-          "endSection": 9,
-          "timeStart": "15:10",
-          "timeEnd": "16:35"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-303",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
+          "timeEnd": "11:50"
         }
       ],
       "tue": [
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "结构力学定性与策略",
+          "teacher": "潘宏树()",
+          "room": "C5-107",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -2380,40 +1651,27 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
-          "periodLabel": "[08-09]节",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "校内（仙溪）",
+          "periodLabel": "[06-07-08-09]节",
           "periods": [
+            6,
+            7,
             8,
             9
           ],
-          "startSection": 8,
+          "startSection": 6,
           "endSection": 9,
-          "timeStart": "15:10",
+          "timeStart": "13:30",
           "timeEnd": "16:35"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12-13]节",
-          "periods": [
-            11,
-            12,
-            13
-          ],
-          "startSection": 11,
-          "endSection": 13,
-          "timeStart": "18:30",
-          "timeEnd": "20:45"
         }
       ],
       "wed": [
         {
-          "course": "形势与政策4",
-          "teacher": "熊伟(讲师（高校）)",
-          "room": "C3-209",
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -2425,90 +1683,17 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         }
       ],
-      "thu": [
-        {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "房屋建筑学",
-          "teacher": "刘凌飞(讲师（高校）)",
-          "room": "C5-304",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程测量",
-          "teacher": "吴方红(讲师（高校）)",
-          "room": "校内（仙溪）",
-          "periodLabel": "[08-09-10]节",
-          "periods": [
-            8,
-            9,
-            10
-          ],
-          "startSection": 8,
-          "endSection": 10,
-          "timeStart": "15:10",
-          "timeEnd": "17:20"
-        }
-      ],
-      "fri": [
-        {
-          "course": "土木工程测量",
-          "teacher": "曾卫(讲师（高校）)",
-          "room": "C5-110",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        }
-      ],
+      "thu": [],
+      "fri": [],
       "sat": [],
       "sun": []
     },
     "13": {
       "mon": [
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
           "periodLabel": "[06-07]节",
           "periods": [
             6,
@@ -2518,27 +1703,13 @@ window.SCHEDULE_DATA = {
           "endSection": 7,
           "timeStart": "13:30",
           "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程开拓创新实验2",
-          "teacher": "李犇(讲师（高校）)",
-          "room": "B4-318",
-          "periodLabel": "[08-09]节",
-          "periods": [
-            8,
-            9
-          ],
-          "startSection": 8,
-          "endSection": 9,
-          "timeStart": "15:10",
-          "timeEnd": "16:35"
         }
       ],
       "tue": [
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "结构力学定性与策略",
+          "teacher": "潘宏树()",
+          "room": "C5-107",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -2550,40 +1721,27 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
-          "periodLabel": "[08-09]节",
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "校内（仙溪）",
+          "periodLabel": "[06-07-08-09]节",
           "periods": [
+            6,
+            7,
             8,
             9
           ],
-          "startSection": 8,
+          "startSection": 6,
           "endSection": 9,
-          "timeStart": "15:10",
+          "timeStart": "13:30",
           "timeEnd": "16:35"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
         }
       ],
-      "wed": [],
-      "thu": [
+      "wed": [
         {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -2593,20 +1751,36 @@ window.SCHEDULE_DATA = {
           "endSection": 2,
           "timeStart": "08:00",
           "timeEnd": "09:25"
+        }
+      ],
+      "thu": [
+        {
+          "course": "结构力学定性与策略",
+          "teacher": "潘宏树()",
+          "room": "C5-108",
+          "periodLabel": "[03-04]节",
+          "periods": [
+            3,
+            4
+          ],
+          "startSection": 3,
+          "endSection": 4,
+          "timeStart": "09:40",
+          "timeEnd": "11:05"
         },
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
+          "course": "土木工程开拓创新实验3",
+          "teacher": "吴方红(讲师（高校）)",
+          "room": "B4-222",
+          "periodLabel": "[08-09]节",
           "periods": [
-            6,
-            7
+            8,
+            9
           ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
+          "startSection": 8,
+          "endSection": 9,
+          "timeStart": "15:10",
+          "timeEnd": "16:35"
         }
       ],
       "fri": [],
@@ -2614,41 +1788,29 @@ window.SCHEDULE_DATA = {
       "sun": []
     },
     "14": {
-      "mon": [
+      "mon": [],
+      "tue": [],
+      "wed": [
         {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
+          "periodLabel": "[01-02]节",
           "periods": [
-            6,
-            7
+            1,
+            2
           ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
-        },
-        {
-          "course": "土木工程开拓创新实验2",
-          "teacher": "李犇(讲师（高校）)",
-          "room": "B4-318",
-          "periodLabel": "[08-09]节",
-          "periods": [
-            8,
-            9
-          ],
-          "startSection": 8,
-          "endSection": 9,
-          "timeStart": "15:10",
-          "timeEnd": "16:35"
+          "startSection": 1,
+          "endSection": 2,
+          "timeStart": "08:00",
+          "timeEnd": "09:25"
         }
       ],
-      "tue": [
+      "thu": [
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
+          "course": "结构力学定性与策略",
+          "teacher": "潘宏树()",
+          "room": "C5-108",
           "periodLabel": "[03-04]节",
           "periods": [
             3,
@@ -2660,9 +1822,9 @@ window.SCHEDULE_DATA = {
           "timeEnd": "11:05"
         },
         {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
+          "course": "土木工程开拓创新实验3",
+          "teacher": "吴方红(讲师（高校）)",
+          "room": "B4-222",
           "periodLabel": "[08-09]节",
           "periods": [
             8,
@@ -2672,51 +1834,6 @@ window.SCHEDULE_DATA = {
           "endSection": 9,
           "timeStart": "15:10",
           "timeEnd": "16:35"
-        },
-        {
-          "course": "毛泽东思想和中国特色社会主义理论体系概论",
-          "teacher": "李庆(讲师（高校）)",
-          "room": "C4-302",
-          "periodLabel": "[11-12]节",
-          "periods": [
-            11,
-            12
-          ],
-          "startSection": 11,
-          "endSection": 12,
-          "timeStart": "18:30",
-          "timeEnd": "19:55"
-        }
-      ],
-      "wed": [],
-      "thu": [
-        {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
-          "periodLabel": "[01-02]节",
-          "periods": [
-            1,
-            2
-          ],
-          "startSection": 1,
-          "endSection": 2,
-          "timeStart": "08:00",
-          "timeEnd": "09:25"
-        },
-        {
-          "course": "结构力学1",
-          "teacher": "吕学涛(副教授)",
-          "room": "C5-103",
-          "periodLabel": "[06-07]节",
-          "periods": [
-            6,
-            7
-          ],
-          "startSection": 6,
-          "endSection": 7,
-          "timeStart": "13:30",
-          "timeEnd": "14:55"
         }
       ],
       "fri": [],
@@ -2725,42 +1842,12 @@ window.SCHEDULE_DATA = {
     },
     "15": {
       "mon": [],
-      "tue": [
+      "tue": [],
+      "wed": [
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        },
-        {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
-          "periodLabel": "[08-09]节",
-          "periods": [
-            8,
-            9
-          ],
-          "startSection": 8,
-          "endSection": 9,
-          "timeStart": "15:10",
-          "timeEnd": "16:35"
-        }
-      ],
-      "wed": [],
-      "thu": [
-        {
-          "course": "智能机械与机器人基础",
-          "teacher": "薛国峰(讲师（高校）),郭达文()",
-          "room": "C5-105",
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -2772,43 +1859,46 @@ window.SCHEDULE_DATA = {
           "timeEnd": "09:25"
         }
       ],
+      "thu": [],
       "fri": [],
       "sat": [],
       "sun": []
     },
     "16": {
-      "mon": [
-        {
-          "course": "土木工程地质",
-          "teacher": "王祥秋(教授),曾卫(讲师（高校）),刘慧芬(讲师（高校）),程马遥(讲师（高校）),雷国平(讲师（高校）)",
-          "room": "校外（仙溪）",
-          "periodLabel": "[01]节",
-          "periods": [
-            1
-          ],
-          "startSection": 1,
-          "endSection": 1,
-          "timeStart": "08:00",
-          "timeEnd": "08:40"
-        }
-      ],
+      "mon": [],
       "tue": [
         {
-          "course": "大学体育4",
-          "teacher": "徐煊(高级讲师（中专）)",
-          "room": "仙溪湖龙舟码头",
-          "periodLabel": "[03-04]节",
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
+          "periodLabel": "[03-04-05]节",
           "periods": [
             3,
-            4
+            4,
+            5
           ],
           "startSection": 3,
-          "endSection": 4,
+          "endSection": 5,
           "timeStart": "09:40",
-          "timeEnd": "11:05"
+          "timeEnd": "11:50"
         }
       ],
-      "wed": [],
+      "wed": [
+        {
+          "course": "大学生职业发展与就业指导2",
+          "teacher": "周欣()",
+          "room": "C3-311",
+          "periodLabel": "[01-02]节",
+          "periods": [
+            1,
+            2
+          ],
+          "startSection": 1,
+          "endSection": 2,
+          "timeStart": "08:00",
+          "timeEnd": "09:25"
+        }
+      ],
       "thu": [],
       "fri": [],
       "sat": [],
@@ -2844,27 +1934,7 @@ window.SCHEDULE_DATA = {
   },
   "noteItems": [
     {
-      "label": "劳动教育4 陈舟",
-      "weeks": [
-        19
-      ]
-    },
-    {
-      "label": "土木工程测量实习 吴方红",
-      "weeks": [
-        15,
-        16
-      ]
-    },
-    {
-      "label": "房屋建筑学智能设计 刘凌飞",
-      "weeks": [
-        18,
-        19
-      ]
-    },
-    {
-      "label": "大学生创新创业基础2 陈舟",
+      "label": "劳动教育5 焦贞贞",
       "weeks": [
         1,
         2,
@@ -2881,46 +1951,107 @@ window.SCHEDULE_DATA = {
         13,
         14,
         15,
-        16
+        16,
+        17,
+        18,
+        19
       ]
     },
     {
-      "label": "习近平新时代中国特色社会主义思想概论 徐永利",
+      "label": "形势与政策5 黄诗克  网课-仙溪",
       "weeks": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
         9,
-        10
+        10,
+        11,
+        12
       ]
     },
     {
-      "label": "毛泽东思想和中国特色社会主义理论体系概论 李庆",
+      "label": "路基路面工程 覃潇,代勇（外聘）",
       "weeks": [
-        1,
         2,
         3,
         4,
-        5,
         6,
         7,
         8,
         9,
         10,
-        11,
-        12,
-        13,
-        14
+        11
+      ]
+    },
+    {
+      "label": "混凝土结构设计原理 卢汉文",
+      "weeks": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "label": "装配式建筑课程设计 肖淑华",
+      "weeks": [
+        17,
+        18
+      ]
+    },
+    {
+      "label": "老生9月6日返校报到（开学第一周各学院（部）灵活安排注册时间），9月7日正式上课。\r\n新生9月13日入学报到，9月14日-30日军训，10月9日正式上课。",
+      "weeks": [
+        1
+      ]
+    },
+    {
+      "label": "中秋节：9月25日至27日放假，共3天。国庆节补课：9月20日（周日）补10月6日（周二）的课。",
+      "weeks": [
+        3
+      ]
+    },
+    {
+      "label": "国庆节：10月1日至7日放假调休，共7天。10月10日（周六）补10月7日（周三）的课。",
+      "weeks": [
+        4
+      ]
+    },
+    {
+      "label": "老生机动实践周、新生教学周。元旦放假按国务院安排执行。",
+      "weeks": [
+        17
+      ]
+    },
+    {
+      "label": "老生机动实践周、新生教学周。",
+      "weeks": [
+        18
+      ]
+    },
+    {
+      "label": "考试周",
+      "weeks": [
+        19
       ]
     }
   ],
+  "dateNotes": {
+    "2026-09-20": "补课：补 2026-10-06（第 5 周）的课",
+    "2026-10-10": "补课：补 2026-10-07（第 5 周）的课",
+    "2026-09-25": "中秋节放假",
+    "2026-09-26": "中秋节放假",
+    "2026-09-27": "中秋节放假",
+    "2026-10-01": "国庆节放假",
+    "2026-10-02": "国庆节放假",
+    "2026-10-03": "国庆节放假",
+    "2026-10-04": "国庆节放假",
+    "2026-10-05": "国庆节放假",
+    "2026-10-06": "国庆节放假",
+    "2026-10-07": "国庆节放假"
+  },
   "generalNotes": [
-    "土木工程测量 实验准备：李浩然",
-    "土木工程开拓创新实验2 实验准备：吴本英、蔡伟华"
+    "路基路面工程 实验准备：李浩然",
+    "节次时间沿用原课表设置；新文件未提供作息表。元旦具体放假日期未提供，待学校通知。"
   ]
 };

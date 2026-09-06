@@ -707,6 +707,17 @@
       }
 
     }
+    #todaySection { background: transparent; border: 0; box-shadow: none; padding: 0; }
+    .lesson-row { padding: 24px 0; border-bottom: 1px solid #cbd6ce; }
+    .lesson-row:first-child { padding-top: 0; }
+    .lesson-date { font-size: 16px; color: #4b6056; margin-bottom: 12px; }
+    .lesson-time { font-size: clamp(32px, 8vw, 48px); font-weight: 600; letter-spacing: -0.04em; line-height: 1.2; white-space: nowrap; }
+    .lesson-time span { font-size: 0.7em; font-weight: 400; letter-spacing: -0.02em; }
+    .lesson-room { font-size: 28px; font-weight: 600; color: #24614f; margin-top: 12px; overflow-wrap: anywhere; }
+    .lesson-course { font-size: 18px; line-height: 1.6; margin-top: 4px; }
+    #todaySection .button-row { position: sticky; bottom: 16px; margin-top: 16px; }
+    button { min-height: 44px; }
+    button:focus-visible { outline: 3px solid #24614f; outline-offset: 3px; }
   </style>
 </head>
 <body>
@@ -714,10 +725,9 @@
     <div class="stack">
       <section class="panel" id="todaySection">
         <div class="overview-grid">
-          <div class="today-summary" id="todaySummary"></div>
           <div class="today-list" id="todayClassList"></div>
           <div class="button-row">
-            <button id="openOverviewButton" class="install-button" type="button">打开全览</button>
+            <button id="openOverviewButton" class="secondary-button" type="button">查看课表</button>
           </div>
         </div>
       </section>
@@ -729,8 +739,8 @@
         </div>
         <div class="button-row is-three">
           <button id="backTodayButton" class="secondary-button" type="button">返回今日</button>
-          <button id="zoomInButton" class="secondary-button" type="button">放大</button>
-          <button id="zoomOutButton" class="secondary-button" type="button">缩小</button>
+          <button id="zoomInButton" class="secondary-button" type="button">周课表</button>
+          <button id="zoomOutButton" class="secondary-button" type="button">月历</button>
         </div>
       </section>
 
@@ -739,7 +749,7 @@
           <button id="prevWeekButton" class="nav-button" type="button" aria-label="上一周">‹</button>
           <div class="week-focus">
             <strong id="weekLabel">第 1 周</strong>
-            <span id="weekRange">3月9日 - 3月15日</span>
+            <span id="weekRange"></span>
           </div>
           <button id="nextWeekButton" class="nav-button" type="button" aria-label="下一周">›</button>
         </div>
@@ -836,22 +846,21 @@
 
   </main>
 
-  <script src="./schedule-data.js"></script>
+  <script src="./schedule-data.js?v=2026-2027-1-v3"></script>
   <script>
     const DAY_CONFIG = [
+      { key: "sun", label: "周日" },
       { key: "mon", label: "周一" },
       { key: "tue", label: "周二" },
       { key: "wed", label: "周三" },
       { key: "thu", label: "周四" },
       { key: "fri", label: "周五" },
-      { key: "sat", label: "周六" },
-      { key: "sun", label: "周日" }
+      { key: "sat", label: "周六" }
     ];
 
     const COURSE_COLORS = ["#2d7a68", "#dd7f5f", "#3d6cc8", "#9c694a", "#5f8f42", "#856bc9", "#c15f7a"];
-    const OVERRIDE_STORAGE_KEY = "smart-timetable-overrides-v1";
-
     const data = window.SCHEDULE_DATA;
+    const OVERRIDE_STORAGE_KEY = `smart-timetable-overrides-${data.term.id}`;
 
     if (!data) {
       throw new Error("Missing schedule-data.js");
@@ -877,7 +886,6 @@
     const zoomOutButton = document.getElementById("zoomOutButton");
     const prevWeekButton = document.getElementById("prevWeekButton");
     const nextWeekButton = document.getElementById("nextWeekButton");
-    const todaySummary = document.getElementById("todaySummary");
     const todayClassList = document.getElementById("todayClassList");
     const todaySection = document.getElementById("todaySection");
     const adjustWeekHint = document.getElementById("adjustWeekHint");
@@ -918,6 +926,8 @@
       bindControls();
       setupPwa();
       render();
+      setInterval(() => { if (focusMode === "today") renderTodayOverview(); }, 30000);
+      document.addEventListener("visibilitychange", () => { if (!document.hidden) render(); });
     }
 
     function bindControls() {
@@ -934,14 +944,12 @@
       });
 
       zoomInButton.addEventListener("click", () => {
-        const index = ZOOM_LEVELS.indexOf(zoomLevel);
-        zoomLevel = ZOOM_LEVELS[Math.max(0, index - 1)];
+        zoomLevel = "week";
         render();
       });
 
       zoomOutButton.addEventListener("click", () => {
-        const index = ZOOM_LEVELS.indexOf(zoomLevel);
-        zoomLevel = ZOOM_LEVELS[Math.min(ZOOM_LEVELS.length - 1, index + 1)];
+        zoomLevel = "month";
         render();
       });
 
@@ -1128,8 +1136,8 @@
       const showTerm = showOverview && zoomLevel === "term";
 
       weekToolbarSection.hidden = !showWeek;
-      weekStatsSection.hidden = !showWeek;
-      weekNoteSection.hidden = !showWeek;
+      weekStatsSection.hidden = true;
+      weekNoteSection.hidden = true;
       weekDaySection.hidden = !showWeek;
       monthSection.hidden = !showMonth;
       termSection.hidden = !showTerm;
@@ -1141,9 +1149,9 @@
       };
       zoomHint.textContent = zoomText[zoomLevel] || "本周视图";
       zoomInButton.disabled = zoomLevel === "week";
-      zoomOutButton.disabled = zoomLevel === "term";
+      zoomOutButton.disabled = zoomLevel === "month";
       zoomInButton.style.opacity = zoomLevel === "week" ? "0.45" : "1";
-      zoomOutButton.style.opacity = zoomLevel === "term" ? "0.45" : "1";
+      zoomOutButton.style.opacity = zoomLevel === "month" ? "0.45" : "1";
     }
 
     function renderWeekOverview() {
@@ -1250,28 +1258,23 @@
 
     function renderTodayOverview() {
       const context = getTodayContext();
-      const dayLabel = DAY_CONFIG.find((day) => day.key === context.dayKey)?.label || "今日";
-      const todayDate = formatDate(stripTime(new Date()));
-
-      if (context.mode === "preterm") {
-        todaySummary.textContent = `今天 ${todayDate}，学期还没开始。开学日期是 ${formatDate(parseDate(data.term.termStartMonday))}。`;
-      } else if (context.mode === "postterm") {
-        todaySummary.textContent = `今天 ${todayDate}，当前已超出本学期范围。你可以在全览里查看历史周次。`;
-      } else if (context.nextLesson) {
-        todaySummary.textContent = `今天 ${dayLabel} · 第 ${context.week} 周。下一节：${context.nextLesson.item.timeStart} ${context.nextLesson.item.course}（${context.countdownLabel}）`;
-      } else {
-        todaySummary.textContent = `今天 ${dayLabel} · 第 ${context.week} 周。今天课程已结束。`;
-      }
-
-      if (context.mode !== "interm") {
-        todayClassList.innerHTML = `<div class="empty">${context.mode === "preterm" ? "学期还没开始，今天不会显示正式课程。" : "当前已超出本学期范围。仍可在下方切换周次查看历史课表。"}</div>`;
-        return;
-      }
-
-      const todayClasses = getDayClasses(context.week, context.dayKey);
-      todayClassList.innerHTML = todayClasses.length
-        ? todayClasses.map((item) => renderClass(item, { week: context.week, dayKey: context.dayKey, compactAction: true })).join("")
-        : `<div class="empty">今天没有固定排课。${context.nextLesson ? `下一节是 ${context.nextLesson.dayLabel} 的 ${escapeHtml(context.nextLesson.item.course)}。` : "本周剩余时间也没有更多课程。"}</div>`;
+      const now = new Date();
+      const remaining = context.mode === "interm"
+        ? getDayClasses(context.week, context.dayKey).filter(item => combineDateAndTime(now, item.timeEnd) > now)
+        : [];
+      const next = context.nextLesson;
+      const date = remaining.length ? now : next?.dateTime;
+      const items = remaining.length ? remaining : next ? [next.item] : [];
+      todayClassList.innerHTML = items.length ? items.map((item, index) => {
+        const ongoing = remaining.length && combineDateAndTime(now, item.timeStart) <= now;
+        const label = `${isSameDate(date, now) ? "今天" : formatDate(date)} ${DAY_CONFIG.find(day => day.key === (remaining.length ? context.dayKey : next.dayKey)).label}`;
+        return `<article class="lesson-row">
+          <div class="lesson-date">${escapeHtml(label)}${ongoing ? " · 正在上课" : index === 0 ? " · 下一节" : ""}</div>
+          <div class="lesson-time">${item.timeStart}<span>–${item.timeEnd}</span></div>
+          <div class="lesson-room">${escapeHtml(item.room || "地点待定")}</div>
+          <div class="lesson-course">${escapeHtml(item.course)}</div>
+        </article>`;
+      }).join("") : '<div class="empty">暂无后续课程</div>';
     }
 
     function renderNotes() {
@@ -1288,7 +1291,7 @@
             <div>${escapeHtml(item.label)}</div>
           </article>
         `),
-        ...data.generalNotes.slice(0, 2).map((text) => `
+        ...data.generalNotes.map((text) => `
           <article class="note">
             <strong>通用备注</strong>
             <div>${escapeHtml(text)}</div>
@@ -1318,7 +1321,7 @@
             <div class="day-head">
               <div>
                 <h3>${day.label}</h3>
-                <p>${formatDate(date)} · ${isToday ? "今天" : "本周安排"}</p>
+                <p>${formatDate(date)} · ${escapeHtml(getCalendarNote(date) || (isToday ? "今天" : "本周安排"))}</p>
               </div>
               <div class="day-count">${classes.length ? `${classes.length} 节` : "空白"}</div>
             </div>
@@ -1444,7 +1447,7 @@
 
     function getDateContext(date) {
       const dateOnly = stripTime(date);
-      const termStart = parseDate(data.term.termStartMonday);
+      const termStart = parseDate(data.term.weekStartDate);
       const diff = Math.floor((dateOnly - termStart) / 86400000);
       if (diff < 0) {
         return { inTerm: false, date: dateOnly };
@@ -1465,8 +1468,8 @@
     function getTodayContext() {
       const today = new Date();
       const dateOnly = stripTime(today);
-      const termStart = parseDate(data.term.termStartMonday);
-      const termEnd = parseDate(data.term.termStartMonday);
+      const termStart = parseDate(data.term.weekStartDate);
+      const termEnd = parseDate(data.term.weekStartDate);
       termEnd.setDate(termEnd.getDate() + totalWeeks * 7 - 1);
 
       if (dateOnly < termStart) {
@@ -1577,7 +1580,7 @@
 
     function getCurrentWeek() {
       const today = stripTime(new Date());
-      const start = parseDate(data.term.termStartMonday);
+      const start = parseDate(data.term.weekStartDate);
       const diff = Math.floor((today - start) / 86400000);
       if (diff < 0) {
         return 1;
@@ -1586,7 +1589,7 @@
     }
 
     function getWeekDates(week) {
-      const monday = parseDate(data.term.termStartMonday);
+      const monday = parseDate(data.term.weekStartDate);
       monday.setDate(monday.getDate() + (week - 1) * 7);
       return DAY_CONFIG.map((_, index) => {
         const date = new Date(monday);
@@ -1604,6 +1607,11 @@
       const month = date.getMonth() + 1;
       const day = date.getDate();
       return compact ? `${month}月${day}日` : `${month}月${day}日`;
+    }
+
+    function getCalendarNote(date) {
+      const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      return data.dateNotes?.[key] || "";
     }
 
     function parseDate(raw) {
