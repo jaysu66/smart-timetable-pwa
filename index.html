@@ -707,10 +707,10 @@
       }
 
     }
-    #todaySection { background: transparent; border: 0; box-shadow: none; padding: 0; }
+    #todaySection { background: transparent; border: 0; box-shadow: none; padding: 0; overflow: visible; }
     .lesson-row { padding: 24px 0; border-bottom: 1px solid #cbd6ce; }
-    .lesson-row:first-child { padding-top: 0; }
-    .lesson-date { font-size: 16px; color: #4b6056; margin-bottom: 12px; }
+    .lesson-row:first-child { padding-top: 8px; }
+    .lesson-date { display: block; padding-block: 4px; font-size: 16px; line-height: 1.6; color: #4b6056; margin-bottom: 8px; overflow: visible; }
     .lesson-time { font-size: clamp(32px, 8vw, 48px); font-weight: 600; letter-spacing: -0.04em; line-height: 1.2; white-space: nowrap; }
     .lesson-time span { font-size: 0.7em; font-weight: 400; letter-spacing: -0.02em; }
     .lesson-room { font-size: 28px; font-weight: 600; color: #24614f; margin-top: 12px; overflow-wrap: anywhere; }
@@ -846,7 +846,7 @@
 
   </main>
 
-  <script src="./schedule-data.js?v=2026-2027-1-v3"></script>
+  <script src="./schedule-data.js?v=2026-2027-1-v4"></script>
   <script>
     const DAY_CONFIG = [
       { key: "sun", label: "周日" },
