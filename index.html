@@ -846,7 +846,7 @@
 
   </main>
 
-  <script src="./schedule-data.js?v=2026-2027-1-v4"></script>
+  <script src="./schedule-data.js?v=2026-2027-1-v5"></script>
   <script>
     const DAY_CONFIG = [
       { key: "sun", label: "周日" },
@@ -1308,7 +1308,9 @@
       const dates = getWeekDates(selectedWeek);
       const today = stripTime(new Date());
 
-      dayList.innerHTML = DAY_CONFIG.map((day, index) => {
+      dayList.innerHTML = DAY_CONFIG.map((day, index) => ({ day, index }))
+        .filter(({ day }) => !["sat", "sun"].includes(day.key) || getDayClasses(selectedWeek, day.key).length)
+        .map(({ day, index }) => {
         const classes = getDayClasses(selectedWeek, day.key);
         const date = dates[index];
         const isToday = selectedWeek === currentWeek && isSameDate(date, today);
@@ -1328,7 +1330,7 @@
             ${content}
           </article>
         `;
-      }).join("");
+        }).join("");
     }
 
     function renderClass(item, options = {}) {
