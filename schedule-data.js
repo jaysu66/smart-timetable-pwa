@@ -101,7 +101,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -147,7 +147,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -242,7 +242,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -303,7 +303,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -398,7 +398,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -459,7 +459,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -506,7 +506,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -569,7 +569,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -639,7 +639,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -777,7 +777,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -824,7 +824,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -947,7 +947,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -994,7 +994,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -1102,7 +1102,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -1149,7 +1149,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
@@ -1304,7 +1304,7 @@ window.SCHEDULE_DATA = {
         {
           "course": "土力学",
           "teacher": "王祥秋(教授)",
-          "room": "C5-302",
+          "room": "C3-310",
           "periodLabel": "[01-02]节",
           "periods": [
             1,
