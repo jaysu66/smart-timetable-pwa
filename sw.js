@@ -1,9 +1,9 @@
-const CACHE_NAME = "smart-timetable-2026-2027-1-v6";
+const CACHE_NAME = "smart-timetable-2026-2027-1-v7";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./schedule-data.js",
-  "./schedule-data.js?v=2026-2027-1-v6",
+  "./schedule-data.js?v=2026-2027-1-v7",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png",

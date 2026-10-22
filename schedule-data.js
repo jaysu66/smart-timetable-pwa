@@ -1129,22 +1129,7 @@ window.SCHEDULE_DATA = {
           "timeEnd": "17:20"
         }
       ],
-      "wed": [
-        {
-          "course": "路基路面工程",
-          "teacher": "覃潇(副教授),代勇（外聘）()",
-          "room": "C3-311",
-          "periodLabel": "[03-04]节",
-          "periods": [
-            3,
-            4
-          ],
-          "startSection": 3,
-          "endSection": 4,
-          "timeStart": "09:40",
-          "timeEnd": "11:05"
-        }
-      ],
+      "wed": [],
       "thu": [
         {
           "course": "土力学",
@@ -1204,7 +1189,22 @@ window.SCHEDULE_DATA = {
           "timeEnd": "17:20"
         }
       ],
-      "fri": [],
+      "fri": [
+        {
+          "course": "路基路面工程",
+          "teacher": "覃潇(副教授),代勇（外聘）()",
+          "room": "C3-311",
+          "periodLabel": "[06-07]节",
+          "periods": [
+            6,
+            7
+          ],
+          "startSection": 6,
+          "endSection": 7,
+          "timeStart": "13:30",
+          "timeEnd": "14:55"
+        }
+      ],
       "sat": [],
       "sun": []
     },
